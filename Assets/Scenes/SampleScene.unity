@@ -153,11 +153,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f17ba6988b901045a21f565f618b15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 15
+  m_speed: 10
   m_gravityScale: 1
   m_fallMultiplier: 2.5
-  m_jumpHeight: 10
+  m_jumpHeight: 6.5
   m_lowJumpMultiplier: 2
+  m_speedFloatReference:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: e09e6726a6a96564ba81ba46c4807d3a, type: 2}
+  m_isFalling:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 1ed6fb8a7477ee649b3dd19d0d8e157b, type: 2}
+  m_isJumping:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 6190ffe5b27cc244ea796b935b7400a0, type: 2}
 --- !u!143 &34377535
 CharacterController:
   m_ObjectHideFlags: 0
@@ -264,6 +276,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a24121f3e05210d4581f4031833d96dc, type: 2}
+    - target: {fileID: 9500000, guid: 49f394ccdcee7cb4ab0b760860fd008f, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49f394ccdcee7cb4ab0b760860fd008f, type: 3}
 --- !u!4 &999441808 stripped
@@ -271,6 +287,35 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400010, guid: 49f394ccdcee7cb4ab0b760860fd008f, type: 3}
   m_PrefabInstance: {fileID: 999441807}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1104679673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100010, guid: 49f394ccdcee7cb4ab0b760860fd008f, type: 3}
+  m_PrefabInstance: {fileID: 999441807}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1104679674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104679673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94cca382b803064e90cd585de6e9888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: e09e6726a6a96564ba81ba46c4807d3a, type: 2}
+  m_isFalling:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 1ed6fb8a7477ee649b3dd19d0d8e157b, type: 2}
+  m_isJumping:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 6190ffe5b27cc244ea796b935b7400a0, type: 2}
 --- !u!1 &1216695342
 GameObject:
   m_ObjectHideFlags: 0

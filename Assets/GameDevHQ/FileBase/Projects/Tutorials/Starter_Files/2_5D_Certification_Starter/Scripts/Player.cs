@@ -20,6 +20,12 @@ public class Player : MonoBehaviour
     private Vector3 m_moveDirection = Vector3.zero;
     private Vector3 m_moveVelocity = Vector3.zero;
 
+    [Header("Animation")]
+    [SerializeField]
+    private FloatReference m_speedFloatReference;
+
+    [SerializeField] private BoolReference m_isJumping;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -33,8 +39,11 @@ public class Player : MonoBehaviour
         Debug.Assert(m_controller != null, nameof(m_controller) + " != null");
         if (m_controller.isGrounded)
         {
+            m_isJumping.Value = false;
             // Calculate move direction based inputs
-            m_moveDirection.z = Input.GetAxis("Horizontal");
+            m_moveDirection.z = Input.GetAxisRaw("Horizontal");
+            Debug.Assert(m_speedFloatReference != null, nameof(m_speedFloatReference) + " != null");
+            m_speedFloatReference.Value = Mathf.Abs(m_moveDirection.z);
             m_moveVelocity.z = m_moveDirection.z * m_speed;
 
             // Face the correct direction
@@ -46,6 +55,7 @@ public class Player : MonoBehaviour
             {
                 // Set Velocity.Y to Jump Height
                 m_moveVelocity.y = m_jumpHeight;
+                m_isJumping.Value = true;
             }
         }
         // if in the air

@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "com.jameslafritz.coreframework": {
+      "version": "https://github.com/JamesLaFritz/CoreFrameWork.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1",
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.animation": "1.0.0",
+        "com.unity.modules.imgui": "1.0.0",
+        "com.unity.modules.ui": "1.0.0",
+        "com.unity.modules.uielements": "1.0.0"
+      },
+      "hash": "f975de5836a3ae93011cb139b57b968e612f346c"
+    },
     "com.unity.collab-proxy": {
       "version": "1.5.7",
       "depth": 0,
