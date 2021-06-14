@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float m_fallMultiplier = 2.5f;
     private float m_currentGravityScale;
 
+    [SerializeField] private BoolReference m_freezePlayersGravity;
+
     [Header("Jumping")] [SerializeField] private float m_jumpHeight = 6.5f;
     [SerializeField] private float m_lowJumpMultiplier = 2.0f;
 
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         m_controller = GetComponent<CharacterController>();
+        m_freezePlayersGravity.Value = false;
     }
 
     // Update is called once per frame
@@ -70,8 +73,13 @@ public class Player : MonoBehaviour
 
     private void ApplyGravity()
     {
+        if (m_freezePlayersGravity.Value)
+        {
+            m_currentGravityScale = 0;
+            m_moveVelocity.y = 0;
+        }
         // If the player is on the downward portion of its jump / falling
-        if (m_moveVelocity.y < 0)
+        else if (m_moveVelocity.y < 0)
         {
             // set the gravity scale to the fall multiplier
             m_currentGravityScale = m_gravityScale * m_fallMultiplier;

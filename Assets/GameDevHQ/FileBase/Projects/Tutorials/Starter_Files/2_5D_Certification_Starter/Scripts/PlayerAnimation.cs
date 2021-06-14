@@ -12,6 +12,9 @@ public class PlayerAnimation : MonoBehaviour
     private static readonly int Jump = Animator.StringToHash("IsJumping");
     private bool m_jumping;
 
+    [SerializeField] private BoolReference m_isLedgeGrabbing;
+    private static readonly int LedgeGrab = Animator.StringToHash("FreeHang");
+
     private void Start()
     {
         m_animator = GetComponent<Animator>();
@@ -25,6 +28,12 @@ public class PlayerAnimation : MonoBehaviour
         {
             m_jumping = m_isJumping.Value;
             m_animator.SetBool(Jump, m_isJumping.Value);
+        }
+
+        if (m_isLedgeGrabbing.Value)
+        {
+            m_isLedgeGrabbing.Value = false;
+            m_animator.SetTrigger(LedgeGrab);
         }
     }
 }
