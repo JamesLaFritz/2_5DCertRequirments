@@ -10,6 +10,7 @@ public class PlayerAnimation : MonoBehaviour
 
     [SerializeField] private BoolReference m_isJumping;
     private static readonly int Jump = Animator.StringToHash("IsJumping");
+    private bool m_jumping;
 
     private void Start()
     {
@@ -20,8 +21,10 @@ public class PlayerAnimation : MonoBehaviour
     {
         // ReSharper disable PossibleNullReferenceException
         m_animator.SetFloat(Speed, m_speed.Value);
-        m_animator.SetBool(Jump, m_isJumping.Value);
-
-        // ReSharper restore PossibleNullReferenceException
+        if (m_jumping != m_isJumping.Value)
+        {
+            m_jumping = m_isJumping.Value;
+            m_animator.SetBool(Jump, m_isJumping.Value);
+        }
     }
 }
