@@ -156,10 +156,10 @@ MonoBehaviour:
   m_speed: 10
   m_gravityScale: 1
   m_fallMultiplier: 2.5
-  m_freezePlayersGravity:
+  m_isLedgeGrabbing:
     useConstant: 0
     constantValue: 0
-    variable: {fileID: 11400000, guid: 3faf346621ac1154f99581407a18fbf8, type: 2}
+    variable: {fileID: 11400000, guid: 825ac2bf248128f4ea8aa6f6605681c3, type: 2}
   m_jumpHeight: 6.5
   m_lowJumpMultiplier: 2
   m_speedFloatReference:
@@ -196,11 +196,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34377533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 72.72, z: 100}
+  m_LocalPosition: {x: -0.02, y: 69.67, z: 109.83}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 999441808}
   - {fileID: 1123097778}
+  - {fileID: 1889622250}
+  - {fileID: 1417860870}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -316,7 +318,10 @@ MonoBehaviour:
   m_isLedgeGrabbing:
     useConstant: 0
     constantValue: 0
-    variable: {fileID: 11400000, guid: 8fd8c3040a80ad34fbdcb5302dab7ec0, type: 2}
+    variable: {fileID: 11400000, guid: 825ac2bf248128f4ea8aa6f6605681c3, type: 2}
+  m_useIK: 1
+  m_leftHandPosition: {fileID: 1889622250}
+  m_rightHandPosition: {fileID: 1417860870}
 --- !u!1 &1123097777
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123097777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.4, z: 0.17}
+  m_LocalPosition: {x: 0, y: 2.1, z: 0.17}
   m_LocalScale: {x: 1, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 34377536}
@@ -506,6 +511,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1417860869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1417860870}
+  m_Layer: 0
+  m_Name: Right Hand Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1417860870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1417860869}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.44, y: 2.1, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 34377536}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1487007761
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,8 +567,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487007761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.25, y: -0.7, z: -1.79}
-  m_LocalScale: {x: 6.5, y: 1, z: 1}
+  m_LocalPosition: {x: 0.05, y: -0.7, z: -1.79}
+  m_LocalScale: {x: 3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000101874767090968}
   m_RootOrder: 23
@@ -564,14 +599,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_grabberTag: LedgeGrabber
-  m_triggerLedgeGrabAnimation:
+  m_playerIsLedgeGrabbing:
     useConstant: 0
     constantValue: 0
-    variable: {fileID: 11400000, guid: 8fd8c3040a80ad34fbdcb5302dab7ec0, type: 2}
-  m_freezePlayersGravity:
-    useConstant: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 3faf346621ac1154f99581407a18fbf8, type: 2}
+    variable: {fileID: 11400000, guid: 825ac2bf248128f4ea8aa6f6605681c3, type: 2}
+--- !u!1 &1889622249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1889622250}
+  m_Layer: 0
+  m_Name: Left Hand Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1889622250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889622249}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.41, y: 2.1, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 34377536}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2120877326
 GameObject:
   m_ObjectHideFlags: 0
