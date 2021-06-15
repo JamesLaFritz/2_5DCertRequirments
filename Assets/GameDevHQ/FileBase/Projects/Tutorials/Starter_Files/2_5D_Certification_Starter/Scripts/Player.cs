@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
 
     private bool m_grabActivated;
 
+    [SerializeField] Vector3Reference m_playerLedgePosition;
+
     [Header("Jumping")] [SerializeField] private float m_jumpHeight = 6.5f;
     [SerializeField] private float m_lowJumpMultiplier = 2.0f;
 
@@ -57,6 +59,7 @@ public class Player : MonoBehaviour
 
         m_grabActivated = true;
         m_controller.enabled = false;
+        transform.position = m_playerLedgePosition.Value;
     }
 
     private void ControllerMovement()

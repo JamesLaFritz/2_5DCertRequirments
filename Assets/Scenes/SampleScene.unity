@@ -160,6 +160,10 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 825ac2bf248128f4ea8aa6f6605681c3, type: 2}
+  m_playerLedgePosition:
+    useConstant: 0
+    constantValue: {x: 0, y: 0, z: 0}
+    variable: {fileID: 11400000, guid: ed0c961bed88f9c4086a95a4f5c64ff5, type: 2}
   m_jumpHeight: 6.5
   m_lowJumpMultiplier: 2
   m_speedFloatReference:
@@ -535,7 +539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417860869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.44, y: 2.1, z: 0.5}
+  m_LocalPosition: {x: 0.44, y: 3, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 34377536}
@@ -567,7 +571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487007761}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: -0.7, z: -1.79}
+  m_LocalPosition: {x: 0.05, y: -0.25, z: -1.79}
   m_LocalScale: {x: 3, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000101874767090968}
@@ -599,10 +603,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_grabberTag: LedgeGrabber
+  m_playersOffsetPosition: {x: 0.1, y: 6.5, z: 0.8}
   m_playerIsLedgeGrabbing:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 825ac2bf248128f4ea8aa6f6605681c3, type: 2}
+  m_playerLedgePosition:
+    useConstant: 0
+    constantValue: {x: 0, y: 0, z: 0}
+    variable: {fileID: 11400000, guid: ed0c961bed88f9c4086a95a4f5c64ff5, type: 2}
 --- !u!1 &1889622249
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889622249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.41, y: 2.1, z: 0.5}
+  m_LocalPosition: {x: -0.41, y: 3, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 34377536}
