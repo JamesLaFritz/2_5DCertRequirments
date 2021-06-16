@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -22,7 +24,13 @@ public class Player : MonoBehaviour
 
     private bool m_grabActivated;
 
-    [SerializeField] Vector3Reference m_playerLedgePosition;
+    [SerializeField] private Vector3Reference m_playerLedgePosition;
+
+    [Header("Climb Up To Ledge")]
+    [SerializeField]
+    private Vector3Reference m_playerClimbUpPosition;
+
+    [SerializeField] private BoolReference m_ClimbUpComplete;
 
     [Header("Jumping")] [SerializeField] private float m_jumpHeight = 6.5f;
     [SerializeField] private float m_lowJumpMultiplier = 2.0f;
@@ -46,11 +54,32 @@ public class Player : MonoBehaviour
         if (m_isLedgeGrabbing)
         {
             GrabLedge();
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                m_isLedgeGrabbing.Value = false;
+            }
         }
-        else
+        else if (m_grabActivated && m_ClimbUpComplete.Value)
+        {
+            PullUpToLedge();
+        }
+        else if (!m_grabActivated)
         {
             ControllerMovement();
         }
+    }
+
+    private void PullUpToLedge()
+    {
+        if (!m_grabActivated && !m_ClimbUpComplete.Value) return;
+
+        m_ClimbUpComplete.Value = false;
+
+        transform.position = m_playerClimbUpPosition.Value - m_controller.center;
+
+        m_controller.enabled = true;
+        m_grabActivated = false;
     }
 
     private void GrabLedge()
@@ -60,6 +89,10 @@ public class Player : MonoBehaviour
         m_grabActivated = true;
         m_controller.enabled = false;
         transform.position = m_playerLedgePosition.Value;
+
+        m_isJumping.Value = false;
+        m_moveVelocity = Vector3.zero;
+        m_speedFloatReference.Value = 0;
     }
 
     private void ControllerMovement()
