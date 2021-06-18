@@ -31,7 +31,7 @@ public class Elevator : MonoBehaviour
         // If the elevator is at a floor waiting Exit the Method
         if (m_isWaiting) return;
 
-        // If the elvator is going up 
+        // If the elevator is going up
         if (m_currentDirection == 1)
         {
             // If the platform has reached the next floor
