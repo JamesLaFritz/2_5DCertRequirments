@@ -18,6 +18,9 @@ public class PlayerAnimation : MonoBehaviour
     private static readonly int LedgeGrab = Animator.StringToHash("FreeHang");
     private bool m_ledgeGrabbing;
 
+    [SerializeField] private BoolReference m_roll;
+    private static readonly int Roll = Animator.StringToHash("Roll");
+
     [SerializeField] private bool m_useIK = true;
     private bool m_setIkPosition;
     [SerializeField] private Transform m_leftHandPosition;
@@ -51,6 +54,12 @@ public class PlayerAnimation : MonoBehaviour
         {
             m_ledgeGrabbing = m_isLedgeGrabbing.Value;
             m_animator.SetBool(LedgeGrab, m_ledgeGrabbing);
+        }
+
+        if (m_roll.Value)
+        {
+            m_roll.Value = false;
+            m_animator.SetTrigger(Roll);
         }
     }
 

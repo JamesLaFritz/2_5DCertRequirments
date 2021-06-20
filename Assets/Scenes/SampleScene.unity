@@ -161,32 +161,41 @@ MonoBehaviour:
   m_speed: 10
   m_gravityScale: 1
   m_fallMultiplier: 2.5
-  m_isLedgeGrabbing:
-    useConstant: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 825ac2bf248128f4ea8aa6f6605681c3, type: 2}
   m_playerLedgePosition:
     useConstant: 0
     constantValue: {x: 0, y: 0, z: 0}
     variable: {fileID: 11400000, guid: ed0c961bed88f9c4086a95a4f5c64ff5, type: 2}
-  m_playerClimbUpPosition:
-    useConstant: 0
-    constantValue: {x: 0, y: 0, z: 0}
-    variable: {fileID: 11400000, guid: 7b4ca4c8cb921d64cb6d98954c7b5d0f, type: 2}
-  m_ClimbUpComplete:
-    useConstant: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: cedc4862b6f4d6f4eb8ffabf3336d001, type: 2}
   m_jumpHeight: 6.5
   m_lowJumpMultiplier: 2
   m_speedFloatReference:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: e09e6726a6a96564ba81ba46c4807d3a, type: 2}
+  m_playerAnimationPosition:
+    useConstant: 0
+    constantValue: {x: 0, y: 0, z: 0}
+    variable: {fileID: 11400000, guid: 27a7e87bc5ef6644fbcbf3a81aac42e2, type: 2}
   m_isJumping:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 6190ffe5b27cc244ea796b935b7400a0, type: 2}
+  m_isLedgeGrabbing:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 825ac2bf248128f4ea8aa6f6605681c3, type: 2}
+  m_ClimbUpComplete:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: cedc4862b6f4d6f4eb8ffabf3336d001, type: 2}
+  m_roll:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 1a86aab29c74f384a85deebc8990909e, type: 2}
+  m_rollAnimationComplete:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 636c960aa58118d4d8ab6e723de367f7, type: 2}
+  m_physicsCollider: {fileID: 1837559931}
 --- !u!143 &34377535
 CharacterController:
   m_ObjectHideFlags: 0
@@ -212,7 +221,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34377533}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
@@ -220,9 +229,10 @@ Transform:
   - {fileID: 1123097778}
   - {fileID: 1889622250}
   - {fileID: 1417860870}
+  - {fileID: 1837559931}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &47853108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7770243307187556347, guid: a15f15ab0b7beb045ac618ef9b7276f3, type: 3}
@@ -774,6 +784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Model
       objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 49f394ccdcee7cb4ab0b760860fd008f, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 49f394ccdcee7cb4ab0b760860fd008f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -924,6 +938,10 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 825ac2bf248128f4ea8aa6f6605681c3, type: 2}
+  m_roll:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 1a86aab29c74f384a85deebc8990909e, type: 2}
   m_useIK: 1
   m_leftHandPosition: {fileID: 1889622250}
   m_rightHandPosition: {fileID: 1417860870}
@@ -1477,7 +1495,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774799, y: 1}
+    m_SensorSize: {x: 1.778761, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1908,6 +1926,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a15f15ab0b7beb045ac618ef9b7276f3, type: 3}
+--- !u!1 &1837559930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837559931}
+  - component: {fileID: 1837559933}
+  - component: {fileID: 1837559932}
+  m_Layer: 0
+  m_Name: PhysicsCollider
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1837559931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837559930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 34377536}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1837559932
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837559930}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!136 &1837559933
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837559930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!4 &1837619332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1144256466039879420, guid: 925751febde532b499fd975ede4d6937, type: 3}

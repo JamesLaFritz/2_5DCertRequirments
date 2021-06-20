@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a36b802be9858724baccb082e2733400, type: 3}
-  m_Name: ClimbPosition
+  m_Script: {fileID: 11500000, guid: f24ef4fedb274cb6b8e53e118ecd9782, type: 3}
+  m_Name: RollingComplete
   m_EditorClassIdentifier: 
-  variableValue: {x: 0, y: 0, z: 0}
+  variableValue: 0

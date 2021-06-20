@@ -19,18 +19,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float m_fallMultiplier = 2.5f;
     private float m_currentGravityScale;
 
-    [Header("Ledge Grab")] [SerializeField]
-    private BoolReference m_isLedgeGrabbing;
-
-    private bool m_grabActivated;
+    [Header("Ledge Grab")] private bool m_grabActivated;
 
     [SerializeField] private Vector3Reference m_playerLedgePosition;
-
-    [Header("Climb Up To Ledge")]
-    [SerializeField]
-    private Vector3Reference m_playerClimbUpPosition;
-
-    [SerializeField] private BoolReference m_ClimbUpComplete;
 
     [Header("Jumping")] [SerializeField] private float m_jumpHeight = 6.5f;
     [SerializeField] private float m_lowJumpMultiplier = 2.0f;
@@ -39,13 +30,27 @@ public class Player : MonoBehaviour
     [SerializeField]
     private FloatReference m_speedFloatReference;
 
+    [SerializeField] private Vector3Reference m_playerAnimationPosition;
+
     [SerializeField] private BoolReference m_isJumping;
+
+    [SerializeField] private BoolReference m_isLedgeGrabbing;
+
+    [SerializeField] private BoolReference m_ClimbUpComplete;
+
+    [SerializeField] private BoolReference m_roll;
+    private bool m_isRolling;
+    [SerializeField] private BoolReference m_rollAnimationComplete;
+    [SerializeField] private Transform m_physicsCollider;
+    private bool m_hasPhysicsCollider;
 
     // Start is called before the first frame update
     private void Start()
     {
         m_controller = GetComponent<CharacterController>();
         m_isLedgeGrabbing.Value = false;
+        m_rollAnimationComplete.Value = false;
+        m_hasPhysicsCollider = m_physicsCollider != null;
     }
 
     // Update is called once per frame
@@ -64,7 +69,24 @@ public class Player : MonoBehaviour
         {
             PullUpToLedge();
         }
-        else if (!m_grabActivated)
+        else if (m_isRolling && m_rollAnimationComplete.Value)
+        {
+            m_rollAnimationComplete.Value = false;
+            transform.position = m_playerAnimationPosition.Value;
+            if (m_hasPhysicsCollider)
+            {
+                m_physicsCollider.gameObject.SetActive(false);
+                m_physicsCollider.localPosition = Vector3.zero;
+            }
+
+            m_controller.enabled = true;
+            m_isRolling = false;
+        }
+        else if (m_isRolling && m_hasPhysicsCollider)
+        {
+            m_physicsCollider.position = m_playerAnimationPosition.Value;
+        }
+        else if (!m_grabActivated && !m_isRolling)
         {
             ControllerMovement();
         }
@@ -76,7 +98,11 @@ public class Player : MonoBehaviour
 
         m_ClimbUpComplete.Value = false;
 
-        transform.position = m_playerClimbUpPosition.Value - m_controller.center;
+        transform.position = m_playerAnimationPosition.Value - m_controller.center;
+        if (m_hasPhysicsCollider)
+        {
+            m_physicsCollider.gameObject.SetActive(false);
+        }
 
         m_controller.enabled = true;
         m_grabActivated = false;
@@ -93,6 +119,10 @@ public class Player : MonoBehaviour
         m_isJumping.Value = false;
         m_moveVelocity = Vector3.zero;
         m_speedFloatReference.Value = 0;
+        if (m_hasPhysicsCollider)
+        {
+            m_physicsCollider.gameObject.SetActive(true);
+        }
     }
 
     private void ControllerMovement()
@@ -118,6 +148,20 @@ public class Player : MonoBehaviour
                 // Set Velocity.Y to Jump Height
                 m_moveVelocity.y = m_jumpHeight;
                 m_isJumping.Value = true;
+            }
+
+            // If left shift is pressed roll
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                m_controller.enabled = false;
+                if (m_hasPhysicsCollider)
+                {
+                    m_physicsCollider.gameObject.SetActive(true);
+                }
+
+                m_roll.Value = true;
+                m_isRolling = true;
+                return;
             }
         }
         // if in the air
