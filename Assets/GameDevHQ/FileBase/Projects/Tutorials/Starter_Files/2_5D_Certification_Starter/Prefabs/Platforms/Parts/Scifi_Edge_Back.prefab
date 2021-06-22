@@ -1924,7 +1924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_grabberTag: LedgeGrabber
-  m_playersOffsetPosition: {x: 0.1, y: 6.5, z: -0.8}
+  m_playersOffsetPosition: {x: 0, y: 5.25, z: -0.75}
   m_playerIsLedgeGrabbing:
     useConstant: 0
     constantValue: 0
