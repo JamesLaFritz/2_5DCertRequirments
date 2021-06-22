@@ -11,7 +11,7 @@
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/JamesLaFritz/MyProjectTemplate">
-    <img src="Images/Logo.png" alt="Logo" width="80" height="80">
+    <img src="Images/Logo.png" alt="Logo" width="256" height="256">
   </a>
 </p>
 
