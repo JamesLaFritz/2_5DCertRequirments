@@ -211,6 +211,10 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 1a86aab29c74f384a85deebc8990909e, type: 2}
+  m_isOnLadder:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 336054fcc45ed144f927ca5b90b4816f, type: 2}
   m_useIK: 1
   m_leftHandPosition: {fileID: 7233250186253746912}
   m_rightHandPosition: {fileID: 7233250186855533836}

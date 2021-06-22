@@ -1,5 +1,3 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -20,6 +18,10 @@ public class PlayerAnimation : MonoBehaviour
 
     [SerializeField] private BoolReference m_roll;
     private static readonly int Roll = Animator.StringToHash("Roll");
+
+    [SerializeField] private BoolReference m_isOnLadder;
+    private static readonly int ClimbUpLadder = Animator.StringToHash("ClimbUpLadder");
+    private bool m_onLadder;
 
     [SerializeField] private bool m_useIK = true;
     private bool m_setIkPosition;
@@ -54,6 +56,12 @@ public class PlayerAnimation : MonoBehaviour
         {
             m_ledgeGrabbing = m_isLedgeGrabbing.Value;
             m_animator.SetBool(LedgeGrab, m_ledgeGrabbing);
+        }
+
+        if (m_onLadder != m_isOnLadder.Value)
+        {
+            m_onLadder = m_isOnLadder.Value;
+            m_animator.SetBool(ClimbUpLadder, m_onLadder);
         }
 
         if (m_roll.Value)
