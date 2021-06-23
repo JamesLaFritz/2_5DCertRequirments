@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1627643351479264647}
   - component: {fileID: 1627643351479264646}
   - component: {fileID: 1627643351479264643}
+  - component: {fileID: 3174543938532773296}
   m_Layer: 0
   m_Name: Ledge Checker
   m_TagString: Untagged
@@ -57,16 +58,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9e49e39e76dd443b00f91b3f9d7447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_grabberTag: LedgeGrabber
   m_playersOffsetPosition: {x: 0, y: 5.25, z: 0.75}
-  m_playerIsLedgeGrabbing:
-    useConstant: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 825ac2bf248128f4ea8aa6f6605681c3, type: 2}
   m_playerLedgePosition:
     useConstant: 0
     constantValue: {x: 0, y: 0, z: 0}
     variable: {fileID: 11400000, guid: ed0c961bed88f9c4086a95a4f5c64ff5, type: 2}
+--- !u!114 &3174543938532773296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627643351479264644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc9925270183014c86fe8663d40f48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_triggerTag: LedgeGrabber
+  m_triggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1627643351479264643}
+        m_TargetAssemblyTypeName: Ledge, Assembly-CSharp
+        m_MethodName: SetPlayerEdgePosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 825ac2bf248128f4ea8aa6f6605681c3, type: 2}
+        m_TargetAssemblyTypeName: VariableBase`1[[System.Boolean, mscorlib
+        m_MethodName: SetValue
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  m_triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_triggerStayEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2384016598056283032
 GameObject:
   m_ObjectHideFlags: 0

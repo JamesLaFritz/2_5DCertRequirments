@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9e49e39e76dd443b00f91b3f9d7447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playersOffsetPosition: {x: 0, y: 0, z: 0}
+  m_playersOffsetPosition: {x: 0, y: 0, z: 0.5}
   m_playerLedgePosition:
     useConstant: 0
     constantValue: {x: 0, y: 0, z: 0.25}
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9e49e39e76dd443b00f91b3f9d7447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playersOffsetPosition: {x: 0, y: 0, z: 0}
+  m_playersOffsetPosition: {x: 0, y: 0, z: 0.5}
   m_playerLedgePosition:
     useConstant: 0
     constantValue: {x: 0, y: 0, z: 0}
@@ -241,6 +241,18 @@ MonoBehaviour:
   m_triggerEnterEvent:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 429147876201137641}
+        m_TargetAssemblyTypeName: Ledge, Assembly-CSharp
+        m_MethodName: SetPlayerEdgePosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: cfa8612ecb9e92d4d83168c192ff5d14, type: 2}
         m_TargetAssemblyTypeName: VariableBase`1[[System.Boolean, mscorlib
         m_MethodName: SetValue
@@ -252,18 +264,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 336054fcc45ed144f927ca5b90b4816f, type: 2}
-        m_TargetAssemblyTypeName: VariableBase`1[[System.Boolean, mscorlib
-        m_MethodName: SetValue
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
   m_triggerExitEvent:
     m_PersistentCalls:
