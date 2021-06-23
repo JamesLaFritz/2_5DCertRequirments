@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.jameslafritz.coreframework": "https://github.com/JamesLaFritz/CoreFrameWork.git",
+    "com.unity.cinemachine": "2.7.4",
     "com.unity.collab-proxy": "1.5.7",
     "com.unity.ide.rider": "3.0.7",
     "com.unity.render-pipelines.universal": "11.0.0",

@@ -1,5 +1,3 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -17,6 +15,15 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField] private BoolReference m_isLedgeGrabbing;
     private static readonly int LedgeGrab = Animator.StringToHash("FreeHang");
     private bool m_ledgeGrabbing;
+
+    [SerializeField] private BoolReference m_roll;
+    private static readonly int Roll = Animator.StringToHash("Roll");
+
+    [SerializeField] private BoolReference m_isOnLadder;
+    private static readonly int ClimbUpLadder = Animator.StringToHash("ClimbUpLadder");
+    private bool m_onLadder;
+    [SerializeField] private BoolReference m_triggerLadderClimbUp;
+    private static readonly int LadderClimbUpTrigger = Animator.StringToHash("LadderClimbUpTrigger");
 
     [SerializeField] private bool m_useIK = true;
     private bool m_setIkPosition;
@@ -49,8 +56,28 @@ public class PlayerAnimation : MonoBehaviour
 
         if (m_ledgeGrabbing != m_isLedgeGrabbing.Value)
         {
-            m_ledgeGrabbing = m_isLedgeGrabbing.Value;
+            m_ledgeGrabbing = m_onLadder = m_isLedgeGrabbing.Value;
             m_animator.SetBool(LedgeGrab, m_ledgeGrabbing);
+        }
+
+        if (m_onLadder && m_triggerLadderClimbUp)
+        {
+            m_triggerLadderClimbUp.Value = false;
+            m_animator.SetTrigger(LadderClimbUpTrigger);
+            m_onLadder = m_isOnLadder.Value = false;
+            m_animator.SetBool(ClimbUpLadder, m_onLadder);
+        }
+
+        if (!m_onLadder && m_isOnLadder.Value)
+        {
+            m_onLadder = true;
+            m_animator.SetBool(ClimbUpLadder, m_onLadder);
+        }
+
+        if (m_roll.Value)
+        {
+            m_roll.Value = false;
+            m_animator.SetTrigger(Roll);
         }
     }
 
