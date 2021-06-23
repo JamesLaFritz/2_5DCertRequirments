@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -9,6 +10,8 @@ public class Player : MonoBehaviour
     [Range(1, 30)]
     [SerializeField]
     private float m_speed = 5;
+
+    [SerializeField] private float m_climbSpeed = 5f;
 
     private Vector3 m_moveDirection = Vector3.zero;
     private Vector3 m_moveVelocity = Vector3.zero;
@@ -39,6 +42,10 @@ public class Player : MonoBehaviour
     [SerializeField] private BoolReference m_roll;
     private bool m_isRolling;
     [SerializeField] private BoolReference m_rollAnimationComplete;
+
+    [SerializeField] private BoolReference m_isOnLadder;
+    private bool m_onLadder;
+    
     [SerializeField] private Transform m_physicsCollider;
     private bool m_hasPhysicsCollider;
 
@@ -67,6 +74,14 @@ public class Player : MonoBehaviour
         {
             PullUpToLedge();
         }
+        else if(m_isOnLadder.Value && !m_onLadder)
+        {
+            transform.position = m_playerAnimationPosition.Value = m_playerLedgePosition.Value;
+        }
+        else if (m_isOnLadder)
+        {
+            transform.position = Vector3.MoveTowards(transform.position,m_playerAnimationPosition.Value, 1 * Time.deltaTime);
+        }
         else if (m_isRolling && m_rollAnimationComplete.Value)
         {
             m_rollAnimationComplete.Value = false;
@@ -74,7 +89,7 @@ public class Player : MonoBehaviour
             if (m_hasPhysicsCollider)
             {
                 m_physicsCollider.gameObject.SetActive(false);
-                m_physicsCollider.localPosition = Vector3.zero;
+                //m_physicsCollider.localPosition = Vector3.zero;
             }
 
             m_controller.enabled = true;
@@ -82,7 +97,7 @@ public class Player : MonoBehaviour
         }
         else if (m_isRolling && m_hasPhysicsCollider)
         {
-            m_physicsCollider.position = m_playerAnimationPosition.Value;
+            //m_physicsCollider.position = m_playerAnimationPosition.Value;
         }
         else if (!m_grabActivated && !m_isRolling)
         {
@@ -174,6 +189,9 @@ public class Player : MonoBehaviour
 
     private void ApplyGravity()
     {
+        if (m_isOnLadder)
+            return;
+        
         // If the player is on the downward portion of its jump / falling
         if (m_moveVelocity.y < 0)
         {
