@@ -11,8 +11,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float m_speed = 5;
 
-    [SerializeField] private float m_climbSpeed = 5f;
-
     private Vector3 m_moveDirection = Vector3.zero;
     private Vector3 m_moveVelocity = Vector3.zero;
 
@@ -189,9 +187,6 @@ public class Player : MonoBehaviour
 
     private void ApplyGravity()
     {
-        if (m_isOnLadder)
-            return;
-        
         // If the player is on the downward portion of its jump / falling
         if (m_moveVelocity.y < 0)
         {
