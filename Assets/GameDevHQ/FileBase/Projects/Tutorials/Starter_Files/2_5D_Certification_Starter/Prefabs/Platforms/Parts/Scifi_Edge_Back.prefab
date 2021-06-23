@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2810413851659124909}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 21}
   m_LocalScale: {x: 1, y: 1, z: -1}
   m_Children:
@@ -408,7 +408,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2810413851959715562}
-  m_LocalRotation: {x: 0.5, y: 0.4999999, z: -0.50000006, w: 0.5000001}
+  m_LocalRotation: {x: 0.50000006, y: 0.50000006, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 1.4960003, y: -0.34, z: 0.015000105}
   m_LocalScale: {x: 0.825, y: 1, z: 1}
   m_Children: []
@@ -573,7 +573,7 @@ Transform:
   m_GameObject: {fileID: 2810413852068816963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.8, y: -0.23, z: -0.16}
-  m_LocalScale: {x: 12.721009, y: 0.85953, z: 3.3695312}
+  m_LocalScale: {x: 12.721009, y: 0.85953, z: -3.369531}
   m_Children: []
   m_Father: {fileID: 2810413851659124946}
   m_RootOrder: 22
@@ -945,7 +945,7 @@ Transform:
   m_GameObject: {fileID: 2810413852420140718}
   m_LocalRotation: {x: 0.707094, y: -0, z: -0, w: 0.7071196}
   m_LocalPosition: {x: -4.8, y: -1.64, z: -1.91}
-  m_LocalScale: {x: 12.721009, y: 0.85953, z: 2.9483397}
+  m_LocalScale: {x: 12.721009, y: 0.85953, z: -2.94834}
   m_Children: []
   m_Father: {fileID: 2810413851659124946}
   m_RootOrder: 23
@@ -1893,7 +1893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7011577852926365213}
   m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05, y: -0.36, z: -1.8}
+  m_LocalPosition: {x: 0, y: -0.25, z: -1.8}
   m_LocalScale: {x: 3, y: 1, z: -1}
   m_Children: []
   m_Father: {fileID: 2810413851659124946}
@@ -1924,7 +1924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9e49e39e76dd443b00f91b3f9d7447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playersOffsetPosition: {x: 0, y: 5.25, z: -0.75}
+  m_playersOffsetPosition: {x: 0, y: 5.25, z: -0.5}
   m_playerLedgePosition:
     useConstant: 0
     constantValue: {x: 0, y: 0, z: 0}

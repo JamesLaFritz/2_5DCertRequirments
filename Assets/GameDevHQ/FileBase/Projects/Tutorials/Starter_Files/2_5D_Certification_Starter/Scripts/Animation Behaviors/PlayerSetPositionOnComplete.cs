@@ -7,14 +7,24 @@ public class PlayerSetPositionOnComplete : StateMachineBehaviour
     [SerializeField] private BoolReference m_animationComplete;
     [SerializeField] private bool m_useYPosition = true;
 
+    #region Overrides of StateMachineBehaviour
+
+    /// <inheritdoc />
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        m_animationComplete.Value = false;
+    }
+
+    #endregion
+
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_animationComplete.Value = true;
     }
 
     // OnStateIK is called right after Animator.OnAnimatorIK()
-    override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    public override void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (m_animationComplete.Value) return;
 

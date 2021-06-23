@@ -18,10 +18,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float m_fallMultiplier = 2.5f;
     private float m_currentGravityScale;
 
-    [Header("Ledge Grab")] private bool m_grabActivated;
-
-    [SerializeField] private Vector3Reference m_playerLedgePosition;
-
     [Header("Jumping")] [SerializeField] private float m_jumpHeight = 6.5f;
     [SerializeField] private float m_lowJumpMultiplier = 2.0f;
 
@@ -33,7 +29,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] private BoolReference m_isJumping;
 
+    [SerializeField] private Vector3Reference m_playerLedgePosition;
+
     [SerializeField] private BoolReference m_isLedgeGrabbing;
+    private bool m_grabActivated;
+
+    [SerializeField] private BoolReference m_isOnLadder;
+    private bool m_onLadder;
+    private bool m_climbingOffLadder;
 
     [SerializeField] private BoolReference m_ClimbUpComplete;
 
@@ -41,18 +44,17 @@ public class Player : MonoBehaviour
     private bool m_isRolling;
     [SerializeField] private BoolReference m_rollAnimationComplete;
 
-    [SerializeField] private BoolReference m_isOnLadder;
-    private bool m_onLadder;
-    
     [SerializeField] private Transform m_physicsCollider;
     private bool m_hasPhysicsCollider;
 
-    // Start is called before the first frame update
     private void Start()
     {
         m_controller = GetComponent<CharacterController>();
+        m_playerAnimationPosition.Value = m_playerLedgePosition.Value = transform.position;
         m_isLedgeGrabbing.Value = false;
         m_rollAnimationComplete.Value = false;
+        m_ClimbUpComplete.Value = false;
+        m_isOnLadder.Value = false;
         m_hasPhysicsCollider = m_physicsCollider != null;
     }
 
@@ -68,17 +70,24 @@ public class Player : MonoBehaviour
                 m_isLedgeGrabbing.Value = false;
             }
         }
+        else if (m_isOnLadder.Value && !m_onLadder)
+        {
+            m_onLadder = true;
+            GrabLedge();
+        }
+        else if (m_onLadder)
+        {
+            transform.position =
+                Vector3.MoveTowards(transform.position, m_playerAnimationPosition.Value, 1 * Time.deltaTime);
+            if (!m_isOnLadder.Value)
+            {
+                m_onLadder = false;
+                transform.position = m_playerLedgePosition.Value;
+            }
+        }
         else if (m_grabActivated && m_ClimbUpComplete.Value)
         {
             PullUpToLedge();
-        }
-        else if(m_isOnLadder.Value && !m_onLadder)
-        {
-            transform.position = m_playerAnimationPosition.Value = m_playerLedgePosition.Value;
-        }
-        else if (m_isOnLadder)
-        {
-            transform.position = Vector3.MoveTowards(transform.position,m_playerAnimationPosition.Value, 1 * Time.deltaTime);
         }
         else if (m_isRolling && m_rollAnimationComplete.Value)
         {
@@ -93,10 +102,6 @@ public class Player : MonoBehaviour
             m_controller.enabled = true;
             m_isRolling = false;
         }
-        else if (m_isRolling && m_hasPhysicsCollider)
-        {
-            //m_physicsCollider.position = m_playerAnimationPosition.Value;
-        }
         else if (!m_grabActivated && !m_isRolling)
         {
             ControllerMovement();
@@ -105,9 +110,8 @@ public class Player : MonoBehaviour
 
     private void PullUpToLedge()
     {
-        if (!m_grabActivated && !m_ClimbUpComplete.Value) return;
-
         m_ClimbUpComplete.Value = false;
+        m_onLadder = false;
 
         transform.position = m_playerAnimationPosition.Value - m_controller.center;
         if (m_hasPhysicsCollider)
@@ -125,11 +129,15 @@ public class Player : MonoBehaviour
 
         m_grabActivated = true;
         m_controller.enabled = false;
-        transform.position = m_playerLedgePosition.Value;
+
+        m_moveVelocity = Vector3.zero;
+        m_moveDirection = Vector3.zero;
+        m_speedFloatReference.Value = 0;
+
+        transform.position = m_playerAnimationPosition.Value = m_playerLedgePosition.Value;
 
         m_isJumping.Value = false;
-        m_moveVelocity = Vector3.zero;
-        m_speedFloatReference.Value = 0;
+
         if (m_hasPhysicsCollider)
         {
             m_physicsCollider.gameObject.SetActive(true);

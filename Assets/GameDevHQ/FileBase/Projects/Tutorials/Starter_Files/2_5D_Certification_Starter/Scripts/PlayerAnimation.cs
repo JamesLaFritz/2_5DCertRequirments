@@ -56,7 +56,7 @@ public class PlayerAnimation : MonoBehaviour
 
         if (m_ledgeGrabbing != m_isLedgeGrabbing.Value)
         {
-            m_ledgeGrabbing = m_isLedgeGrabbing.Value;
+            m_ledgeGrabbing = m_onLadder = m_isLedgeGrabbing.Value;
             m_animator.SetBool(LedgeGrab, m_ledgeGrabbing);
         }
 
@@ -68,9 +68,9 @@ public class PlayerAnimation : MonoBehaviour
             m_animator.SetBool(ClimbUpLadder, m_onLadder);
         }
 
-        if (m_onLadder != m_isOnLadder.Value)
+        if (!m_onLadder && m_isOnLadder.Value)
         {
-            m_onLadder = m_isOnLadder.Value;
+            m_onLadder = true;
             m_animator.SetBool(ClimbUpLadder, m_onLadder);
         }
 
