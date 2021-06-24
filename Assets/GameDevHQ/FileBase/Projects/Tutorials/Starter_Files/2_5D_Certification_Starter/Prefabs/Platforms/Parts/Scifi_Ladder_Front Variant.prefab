@@ -63,6 +63,7 @@ PrefabInstance:
     - {fileID: 73096353394743932, guid: 7c7027e3ded6b474b8071490c466ab48, type: 3}
     - {fileID: 7059429675090069267, guid: 7c7027e3ded6b474b8071490c466ab48, type: 3}
     - {fileID: 942125199108470793, guid: 7c7027e3ded6b474b8071490c466ab48, type: 3}
+    - {fileID: 2051416460281857451, guid: 7c7027e3ded6b474b8071490c466ab48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c7027e3ded6b474b8071490c466ab48, type: 3}
 --- !u!1001 &1868591806072765405
 PrefabInstance:
@@ -133,8 +134,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1627643351479264643, guid: 15510b94ae9e0094f85a5c6adb322137, type: 3}
+      propertyPath: m_playersOffsetPosition.y
+      value: -5.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1627643351479264643, guid: 15510b94ae9e0094f85a5c6adb322137, type: 3}
       propertyPath: m_playersOffsetPosition.z
-      value: 0.25
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1627643351479264647, guid: 15510b94ae9e0094f85a5c6adb322137, type: 3}
       propertyPath: m_LocalPosition.z
@@ -244,6 +249,10 @@ PrefabInstance:
       propertyPath: m_triggerEnterEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5149033214049809549, guid: 15510b94ae9e0094f85a5c6adb322137, type: 3}
+      propertyPath: m_boolReference.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: cfa8612ecb9e92d4d83168c192ff5d14, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15510b94ae9e0094f85a5c6adb322137, type: 3}
 --- !u!4 &4780989716072632402 stripped
