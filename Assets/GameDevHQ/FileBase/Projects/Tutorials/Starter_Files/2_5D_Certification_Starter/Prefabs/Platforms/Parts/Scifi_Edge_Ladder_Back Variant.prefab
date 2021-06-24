@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4654228041859688453}
     m_Modifications:
+    - target: {fileID: 1153953570, guid: 93d9e9910503f6e4c90d608d57bba341, type: 3}
+      propertyPath: m_offset.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9126338819795416112, guid: 93d9e9910503f6e4c90d608d57bba341, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -70,7 +74,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2810413851659124909, guid: 5e08d335d51741c4bb7adddf12ac3e08, type: 3}
       propertyPath: m_Name
-      value: Scifi_Edge_Ladder_Back
+      value: Scifi_Edge_Ladder_Back Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2810413851659124946, guid: 5e08d335d51741c4bb7adddf12ac3e08, type: 3}
       propertyPath: m_RootOrder
