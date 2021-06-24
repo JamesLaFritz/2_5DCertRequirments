@@ -1,4 +1,5 @@
 using UnityEngine;
+using Matrix4x4 = System.Numerics.Matrix4x4;
 
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour
     [SerializeField] private BoolReference m_ClimbUpComplete;
 
     [SerializeField] private BoolReference m_roll;
+    [SerializeField] private float m_rollDistance = 11.25f;
     private bool m_isRolling;
     [SerializeField] private BoolReference m_rollAnimationComplete;
 
@@ -54,7 +56,10 @@ public class Player : MonoBehaviour
         m_rollAnimationComplete.Value = false;
         m_ClimbUpComplete.Value = false;
         m_isOnLadder.Value = false;
-        m_hasPhysicsCollider = m_physicsCollider != null;
+        if (m_physicsCollider != null)
+        {
+            m_hasPhysicsCollider = true;
+        }
     }
 
     // Update is called once per frame
@@ -91,11 +96,13 @@ public class Player : MonoBehaviour
         else if (m_isRolling && m_rollAnimationComplete.Value)
         {
             m_rollAnimationComplete.Value = false;
+            
+            Debug.Log(Vector3.Distance(transform.position, m_playerAnimationPosition.Value));
+            
             transform.position = m_playerAnimationPosition.Value;
             if (m_hasPhysicsCollider)
             {
                 m_physicsCollider.gameObject.SetActive(false);
-                //m_physicsCollider.localPosition = Vector3.zero;
             }
 
             m_controller.enabled = true;
@@ -171,6 +178,13 @@ public class Player : MonoBehaviour
             // If left shift is pressed roll
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
+                // Does the ray intersect any objects excluding the player layer
+                if (Physics.Raycast(transform.position + transform.TransformDirection(Vector3.up),
+                                    transform.TransformDirection(Vector3.forward), m_rollDistance))
+                {
+                    return;
+                }
+
                 m_controller.enabled = false;
                 if (m_hasPhysicsCollider)
                 {
