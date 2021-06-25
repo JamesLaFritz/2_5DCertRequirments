@@ -269,13 +269,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 4.5
+  m_Height: 4.2
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 2.25, z: 0}
+  m_Center: {x: 0, y: 1.75, z: 0}
 --- !u!114 &7233250187567895860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +325,7 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 1a86aab29c74f384a85deebc8990909e, type: 2}
+  m_rollDistance: 11.25
   m_rollAnimationComplete:
     useConstant: 0
     constantValue: 0

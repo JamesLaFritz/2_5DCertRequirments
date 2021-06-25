@@ -1,5 +1,4 @@
 using UnityEngine;
-using Matrix4x4 = System.Numerics.Matrix4x4;
 
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
