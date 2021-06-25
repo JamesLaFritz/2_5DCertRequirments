@@ -1,3 +1,4 @@
+using System.Collections;
 using Cinemachine;
 using UnityEngine;
 // ReSharper disable PossibleNullReferenceException
@@ -7,6 +8,8 @@ public class MovablePlatform : MonoBehaviour
     [SerializeField] private Transform m_platform;
     [SerializeField] private CinemachinePathBase m_wayPoints;
     [SerializeField] private float m_speed = 5f;
+    private float m_currentSpeed = 0;
+    [SerializeField] private float m_waitTime = 0f;
 
     [SerializeField, Tag] private string m_playerTag = "Player";
     [SerializeField] private BoolReference m_isPlayerLedgeGrabbing;
@@ -33,23 +36,25 @@ public class MovablePlatform : MonoBehaviour
         }
 
         m_currentPosition = m_nextPosition = transform.position;
+        
+        
     }
 
     private void FixedUpdate()
     {
         // set the current position by using move towards
-        m_currentPosition = Vector3.MoveTowards(m_currentPosition, m_nextPosition, m_speed * Time.deltaTime);
-        // Get the next Position to move towards
-        NextPosition();
+        m_currentPosition = Vector3.MoveTowards(m_currentPosition, m_nextPosition, m_currentSpeed * Time.deltaTime);
         // set the transform position to the current position
         m_platform.transform.position = m_currentPosition;
+        // If the current position has not reached the next position return
+        if (m_currentPosition != m_nextPosition) return;
+
+        StartCoroutine(NextPosition());
     }
 
-    private void NextPosition()
+    private IEnumerator NextPosition()
     {
-        // If the current position has not reached the next position return
-        if (m_currentPosition != m_nextPosition)
-            return;
+        m_currentSpeed = 0;
 
         // set the next position the the position at the current way point
         m_nextPosition =
@@ -67,6 +72,11 @@ public class MovablePlatform : MonoBehaviour
             // set the next position to the current position
             m_currentWayPoint = m_currentWayPoint + m_currentDirection * 2;
         }
+
+        if (m_waitTime > 0)
+            yield return new WaitForSeconds(m_waitTime);
+
+        m_currentSpeed = m_speed;
     }
 
     private void OnTriggerEnter(Collider other)
