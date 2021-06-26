@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LedgeGrabber
   - Platform
+  - PressureActivator
   layers:
   - Default
   - TransparentFX

@@ -1,3 +1,5 @@
+using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -19,6 +21,9 @@ public class Player : MonoBehaviour
 
     [Header("Jumping")] [SerializeField] private float m_jumpHeight = 6.5f;
     [SerializeField] private float m_lowJumpMultiplier = 2.0f;
+
+    [Header("Pushing")] [Range(0.1f, 10)] [SerializeField]
+    private float m_pushPower = 2;
 
     [Header("Animation")]
     [SerializeField]
@@ -61,6 +66,27 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        OnControllerColliderPushRigidbody(hit);
+    }
+
+    private void OnControllerColliderPushRigidbody(ControllerColliderHit hit)
+    {
+        Rigidbody hitRigidbody = hit.rigidbody;
+        // confirm it has a rigidbody and that the rigidbody can be pushed (the body is not kinematic)
+        if (hitRigidbody == null || hitRigidbody.isKinematic) return;
+
+        // make sure that the box is not below the player
+        if (hit.moveDirection.y < -0.3f) return;
+
+        //calculate move direction
+        Vector3 pushDirection = hit.moveDirection;
+        //push (using rigid body velocity
+        float pushPower = m_pushPower / (hitRigidbody.mass > 0 ? hitRigidbody.mass : 0.1f);
+        hitRigidbody.velocity = pushDirection * pushPower;
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -96,7 +122,7 @@ public class Player : MonoBehaviour
         {
             m_rollAnimationComplete.Value = false;
             
-            Debug.Log(Vector3.Distance(transform.position, m_playerAnimationPosition.Value));
+            //Debug.Log(Vector3.Distance(transform.position, m_playerAnimationPosition.Value));
             
             transform.position = m_playerAnimationPosition.Value;
             if (m_hasPhysicsCollider)
