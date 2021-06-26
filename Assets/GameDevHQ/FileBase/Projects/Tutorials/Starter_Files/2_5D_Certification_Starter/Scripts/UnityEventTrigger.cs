@@ -24,9 +24,10 @@ public class UnityEventTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!m_hasTriggerEnterEvent) return;
-        // Debug.Log($"{other.name} with tag {other.tag} has entered trigger");
+        //Debug.Log($"{other.name} with tag {other.tag} has entered trigger");
         if (other.CompareTag(m_triggerTag))
         {
+            //Debug.Log($"{other.name} has triggered Event");
             m_triggerEnterEvent.Invoke();
         }
     }
