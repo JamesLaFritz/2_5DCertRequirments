@@ -72,7 +72,7 @@
 
 Game Elements Include Ledge Grab System, Moving Platforms, Elevators, And Ladder Climbing.
 
-![Product Name Screen Shot](Images/ScreenShot.png)
+![Product Name Screen Shot](Images/2021-06-26-1554.22.315.gif)
 
 ### Built With
 
