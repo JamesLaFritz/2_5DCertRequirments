@@ -39,6 +39,16 @@ public class RequiredCollectable : MonoBehaviour
         m_textMesh.transform.gameObject.SetActive(true);
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (!m_hasText || m_requirementMeet) return;
+
+        if (!other.CompareTag(m_playerTag)) return;
+
+        m_textMesh.text =
+            $"Requires {m_amountNeeded - m_collectableCount.Value} more {collectableType} in  order to Activate";
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (!m_hasText || m_requirementMeet) return;
