@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,16 @@ public class RequiredCollectable : MonoBehaviour
     [SerializeField] private UnityEvent onRequirementMeet;
     private bool m_requirementMeet;
 
+    [SerializeField] private TextMeshPro m_textMesh;
+    [SerializeField] private string collectableType = "Coins";
+    private bool m_hasText;
+    [SerializeField, Tag] private string m_playerTag = "Player";
+
+    private void Start()
+    {
+        m_hasText = m_textMesh != null;
+    }
+
     private void Update()
     {
         if (m_requirementMeet) return;
@@ -16,5 +27,24 @@ public class RequiredCollectable : MonoBehaviour
 
         m_requirementMeet = true;
         onRequirementMeet?.Invoke();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!m_hasText || m_requirementMeet) return;
+        
+        if (!other.CompareTag(m_playerTag)) return;
+
+        m_textMesh.text = $"Requires {m_amountNeeded - m_collectableCount.Value} more {collectableType} in  order to Activate";
+        m_textMesh.transform.gameObject.SetActive(true);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!m_hasText || m_requirementMeet) return;
+
+        if (!other.CompareTag(m_playerTag)) return;
+        
+        m_textMesh.transform.gameObject.SetActive(false);
     }
 }
