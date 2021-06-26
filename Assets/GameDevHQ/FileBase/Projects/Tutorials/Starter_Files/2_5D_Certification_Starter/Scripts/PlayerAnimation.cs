@@ -23,7 +23,7 @@ public class PlayerAnimation : MonoBehaviour
     private static readonly int ClimbUpLadder = Animator.StringToHash("ClimbUpLadder");
     private bool m_onLadder;
     [SerializeField] private BoolReference m_triggerLadderClimbUp;
-    private static readonly int LadderClimbUpTrigger = Animator.StringToHash("LadderClimbUpTrigger");
+    private static readonly int LadderClimbUpTrigger = Animator.StringToHash("ClimbUpFromLadderTrigger");
 
     [SerializeField] private bool m_useIK = true;
     private bool m_setIkPosition;

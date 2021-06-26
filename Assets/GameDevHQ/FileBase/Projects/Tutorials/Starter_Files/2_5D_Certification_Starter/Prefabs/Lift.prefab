@@ -1176,7 +1176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7119950792455573349}
-  - component: {fileID: 5488792450561879713}
+  - component: {fileID: 5263846341082434205}
   m_Layer: 0
   m_Name: Lift
   m_TagString: Untagged
@@ -1202,7 +1202,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5488792450561879713
+--- !u!114 &5263846341082434205
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1211,12 +1211,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4947669385745075589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1428f87f59476749b6f2e33ce5935db, type: 3}
+  m_Script: {fileID: 11500000, guid: 3818bbffb62c2074b903efe55c3003a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 0.25
+  m_platform: {fileID: 789288394647523123}
+  m_wayPoints: {fileID: 6691438489190018225}
+  m_speed: 5
   m_waitTime: 5
-  m_platformDollyCart: {fileID: 2930181558966162923}
+  m_playerTag: Player
+  m_isPlayerLedgeGrabbing:
+    useConstant: 1
+    constantValue: 0
+    variable: {fileID: 0}
 --- !u!1 &5180413856635975017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,7 +2213,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 789288394647523123}
-  - component: {fileID: 2930181558966162923}
   m_Layer: 0
   m_Name: Lift Floor
   m_TagString: Untagged
@@ -2233,23 +2238,6 @@ Transform:
   m_Father: {fileID: 3029377538581389378}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2930181558966162923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7466670069849966837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a9c787e5d1bbf48a389834c4a9641c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Path: {fileID: 6691438489190018225}
-  m_UpdateMethod: 1
-  m_PositionUnits: 0
-  m_Speed: 0
-  m_Position: 0
 --- !u!1 &7585501574368928711
 GameObject:
   m_ObjectHideFlags: 0

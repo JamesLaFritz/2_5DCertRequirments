@@ -24,8 +24,10 @@ public class UnityEventTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!m_hasTriggerEnterEvent) return;
+        //Debug.Log($"{other.name} with tag {other.tag} has entered trigger");
         if (other.CompareTag(m_triggerTag))
         {
+            //Debug.Log($"{other.name} has triggered Event");
             m_triggerEnterEvent.Invoke();
         }
     }
@@ -33,6 +35,7 @@ public class UnityEventTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (!m_hasTriggerExitEvent) return;
+        // Debug.Log($"{other.name} with tag {other.tag} has exited trigger");
         if (other.CompareTag(m_triggerTag))
         {
             m_triggerExitEvent.Invoke();
@@ -42,6 +45,7 @@ public class UnityEventTrigger : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (!m_hasTriggerStayEvent) return;
+        // Debug.Log($"{other.name} with tag {other.tag} is staying in trigger");
         if (other.CompareTag(m_triggerTag))
         {
             m_triggerStayEvent.Invoke();
