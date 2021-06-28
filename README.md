@@ -40,7 +40,7 @@
 	  <img src="https://img.shields.io/badge/Articles-12100E?style=for-the-badge&logo=medium&logoColor=white"/>
   </a>
   <a href="https://ktmarine1999.itch.io/">
-	  <img src="https://img.shields.io/badge/Itch.io-FA5C5C?style=for-the-badge&logo=itch-dot-io&logoColor=white"/>
+	  <img src="https://img.shields.io/badge/itch.io-FA5C5C?style=for-the-badge&logo=itchdotio&logoColor=white"/>
   </a>
 </p>
 
@@ -76,13 +76,12 @@ Game Elements Include Ledge Grab System, Moving Platforms, Elevators, And Ladder
 
 <a href="https://ktmarine1999.itch.io/25d-platformer">
 	<img src="https://static.itch.io/images/badge.svg" width="100"/>
-	<img src="https://img.shields.io/badge/Play 2.5D Platformer by James LaFritz-FA5C5C?style=for-the-badge&logo=itch-dot-io&logoColor=white"/></a>
+	<img src="https://img.shields.io/badge/Play 2.5D Platformer by James LaFritz-FA5C5C?style=for-the-badge&logo=itchdotio&logoColor=white"/></a>
 	
 ### Built With
 
 * <a href="https://store.unity.com/download-nuo"><img src="https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white"/></a>
-* [My Core Framework](https://github.com/JamesLaFritz/CoreFrameWork)
-
+* <a href="https://store.unity.com/download-nuo"><img src="https://img.shields.io/badge/My Core Framework-100000?style=for-the-badge&logo=unity&logoColor=white"/></a>
 <!-- Articles -->
 
 ### Articles
