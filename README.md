@@ -10,7 +10,7 @@
 
 <!-- PROJECT LOGO -->
 <p align="center">
-  <a href="https://github.com/JamesLaFritz/MyProjectTemplate">
+  <a href="https://github.com/JamesLaFritz/2_5DCertRequirments">
     <img src="Images/Logo.png" alt="Logo" width="256" height="256">
   </a>
 </p>
@@ -21,9 +21,9 @@
     2.5D Platformer With a Physics Controller created from scratch and various platform elements that you will find in very popular games.
     <br />
     <br />
-    <a href="https://github.com/JamesLaFritz/MyProjectTemplate/issues">Report Bug</a>
+    <a href="https://github.com/JamesLaFritz/2_5DCertRequirments/issues">Report Bug</a>
     ·
-    <a href="https://github.com/JamesLaFritz/MyProjectTemplate/issues">Request Feature</a>
+    <a href="https://github.com/JamesLaFritz/2_5DCertRequirments/issues">Request Feature</a>
   </p>
 <br />
 
@@ -74,6 +74,10 @@ Game Elements Include Ledge Grab System, Moving Platforms, Elevators, And Ladder
 
 ![Product Name Screen Shot](Images/2021-06-26-1554.22.315.gif)
 
+<a href="https://ktmarine1999.itch.io/25d-platformer">
+	<img src="https://static.itch.io/images/badge.svg" width="100"/>
+	<img src="https://img.shields.io/badge/Play 2.5D Platformer by James LaFritz-FA5C5C?style=for-the-badge&logo=itch-dot-io&logoColor=white"/></a>
+	
 ### Built With
 
 * <a href="https://store.unity.com/download-nuo"><img src="https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white"/></a>
@@ -83,10 +87,27 @@ Game Elements Include Ledge Grab System, Moving Platforms, Elevators, And Ladder
 
 ### Articles
 
-[]()
-[]()
-[]()
-
+- [Project Set Up & Linking to GIT](https://ktmarine1999.medium.com/2-5d-game-development-b72422d931e4)
+- [Creating a Physics Based Character Controller](https://blog.devgenius.io/creating-a-physics-based-character-controller-in-unity-54ac9a23e2b3)
+- [Add Double Jump](https://blog.devgenius.io/how-to-add-double-jump-to-your-game-a9ae11b7df5e)
+- [Creating Collectables in Unity](https://blog.devgenius.io/creating-collectables-in-unity-3291e6b96521	)
+- [Moving Platforms in Unity Part 1:Moving between 2 Transforms](https://blog.devgenius.io/moving-platforms-in-unity-4d7299b2d013)
+- [Moving Platform Part 2: Using Cinemachine Smooth Path](https://blog.devgenius.io/moving-platform-part-2-71b3addbc462)
+- [Player Lives](https://ktmarine1999.medium.com/player-lives-7174766a38f3)
+- [Create an Elevator In Unity](https://ktmarine1999.medium.com/create-an-elevator-in-unity-46a7e4fb5b4a)
+- [Slope & Slop Point Formula](https://blog.devgenius.io/slope-formula-and-slop-point-formula-16f2496dbb86)
+- [Wall Jumping & Sliding in Unity](https://blog.devgenius.io/wall-jumping-sliding-in-unity-296bb75a539)
+- [Pushing Objects in Unity to Complete Puzzles: Pushing Rigidbodies & Activating Pressure Triggers](https://blog.devgenius.io/pushing-objects-in-unity-to-complete-puzzles-8181fd4a77d1)
+- [How To Upgrade Your Project to URP in Unity](https://blog.devgenius.io/how-to-upgrade-your-project-to-urp-in-unity-df73b26a1389)
+- [Game Assets via Filebase](https://ktmarine1999.medium.com/game-assets-via-filebase-e33bcf90644b)
+- [Adding Animations to A rigged Character In Unity](https://blog.devgenius.io/adding-animations-to-a-rigged-character-in-unity-c47b291a829f)
+- [Creating A Ledge Grab in Unity Part 1: Using Collider Trigger To detect the Ledge](https://ktmarine1999.medium.com/creating-a-ledge-grab-in-unity-par-142ef2d9278c)
+- [Creating A Ledge Grab in Unity Part 2: Using Inverse Kinematics for hand placement and Pulling the Player up onto the platform with a State Machine Behavior.](https://blog.devgenius.io/completing-the-ledge-grabbing-system-9a4fef94be3b)
+- [Platformer Features](https://ktmarine1999.medium.com/platformer-features-9c8200b1c337)
+- [Moving Platform A Different Way: The Best Way](https://blog.devgenius.io/moving-platform-a-different-way-ce5992cc8dec)
+- [Platformer Features: Collectables, Player Roll Animation, Idle Jump Animation.](https://ktmarine1999.medium.com/platformer-features-108e3f8759f8)
+- [Ladder System: Using the Animation System to make the Player appear to climb a ladder](https://blog.devgenius.io/ladder-system-22ed1a5bb8a8)
+- [Progress Update: Roll through obstacles Fixed and Real Level Created](https://ktmarine1999.medium.com/progress-update-4fe415910b1a)
 
 
 <!-- ROADMAP -->
@@ -118,22 +139,22 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/JamesLafritz/MyProjectTemplate.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/JamesLafritz/2_5DCertRequirments.svg?style=for-the-badge
 
-[contributors-url]: https://github.com/JamesLafritz/MyProjectTemplate/graphs/contributors
+[contributors-url]: https://github.com/JamesLafritz/2_5DCertRequirments/graphs/contributors
 
-[forks-shield]: https://img.shields.io/github/forks/JamesLafritz/MyProjectTemplate.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/JamesLafritz/2_5DCertRequirments.svg?style=for-the-badge
 
-[forks-url]: https://github.com/JamesLafritz/MyProjectTemplate/network/members
+[forks-url]: https://github.com/JamesLafritz/2_5DCertRequirments/network/members
 
-[stars-shield]: https://img.shields.io/github/stars/JamesLafritz/MyProjectTemplate.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/JamesLafritz/2_5DCertRequirments.svg?style=for-the-badge
 
-[stars-url]: https://github.com/JamesLafritz/MyProjectTemplate/stargazers
+[stars-url]: https://github.com/JamesLafritz/2_5DCertRequirments/stargazers
 
-[issues-shield]: https://img.shields.io/github/issues/JamesLafritz/MyProjectTemplate.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/JamesLafritz/2_5DCertRequirments.svg?style=for-the-badge
 
-[issues-url]: https://github.com/JamesLafritz/MyProjectTemplate/issues
+[issues-url]: https://github.com/JamesLafritz/2_5DCertRequirments/issues
 
-[license-shield]: https://img.shields.io/github/license/JamesLafritz/MyProjectTemplate.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/JamesLafritz/2_5DCertRequirments.svg?style=for-the-badge
 
-[license-url]: https://github.com/JamesLafritz/MyProjectTemplate/blob/main/LICENSE
+[license-url]: https://github.com/JamesLafritz/2_5DCertRequirments/blob/main/LICENSE
